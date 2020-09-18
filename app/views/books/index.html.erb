@@ -1,0 +1,31 @@
+<div>
+    <h2> Books</h2>
+
+    <a href="/books/new">Add Book</a> <br>
+
+    <table>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Publish Date</th>
+        </tr>
+        <%= @books.each do |b| %>
+        <tr>
+            <td><%= b.title %></td>
+            <td><%= b.author %></td>
+            <td><%= b.genre %></td>
+            <td><%= b.price %></td>
+            <td><%= b.publishDate %></td>
+            <td>
+                <%= link_to("Show", {controller => 'books', :action => 'show', :id => b.id}, :class => 'action show') %>
+                <%= link_to("Edit", {controller => 'books', :action => 'edit', :id => b.id}, :class => 'action edit') %>
+                <%= link_to("Delete", {controller => 'books', :action => 'delete', :id => b.id}, :class => 'action delete') %>
+            </td>
+        </tr>
+        <%end%>
+    </table>
+</div>
+
+
